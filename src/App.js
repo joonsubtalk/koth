@@ -5,7 +5,12 @@ import TerritoryMap from './components/TerritoryMap/TerritoryMap';
 const TileMapContext = React.createContext({});
 export const TileMapProvider = TileMapContext.Provider;
 export const TileMapConsumer = TileMapContext.Consumer;
-const LAND = 'LAND';
+
+const TILE_TYPE = {
+  RED : 'red',
+  BLUE : 'blue',
+  NONE : 'none'
+}
 
 class App extends Component {
 
@@ -19,13 +24,14 @@ class App extends Component {
   }
 
   generateMap = () => {
+    const { RED, BLUE } = TILE_TYPE;
     const tileMap = [
-      {id: '0', tile: LAND},{id: '1', tile: LAND},{id: '2', tile: LAND},{id: '3', tile: LAND},{id: '4', tile: LAND},{id: '5', tile: LAND},
-      {id: '6', tile: LAND},{id: '7', tile: LAND},{id: '8', tile: LAND},{id: '9', tile: LAND},{id: '10', tile: LAND},{id: '11', tile: LAND},
-      {id: '12', tile: LAND},{id: '13', tile: LAND},{id: '14', tile: LAND},{id: '15', tile: LAND},{id: '16', tile: LAND},{id: '17', tile: LAND},
-      {id: '18', tile: LAND},{id: '19', tile: LAND},{id: '20', tile: LAND},{id: '21', tile: LAND},{id: '22', tile: LAND},{id: '23', tile: LAND},
-      {id: '24', tile: LAND},{id: '25', tile: LAND},{id: '26', tile: LAND},{id: '27', tile: LAND},{id: '28', tile: LAND},{id: '29', tile: LAND},
-      {id: '30', tile: LAND},{id: '31', tile: LAND},{id: '32', tile: LAND},{id: '33', tile: LAND},{id: '34', tile: LAND},{id: '35', tile: LAND}
+      {id: '0', type: BLUE},{id: '1', type: BLUE },{id: '2', type: BLUE },{id: '3', type: RED },{id: '4', type: RED },{id: '5', type: RED },
+      {id: '6', type: BLUE },{id: '7', type: RED },{id: '8', type: RED },{id: '9', type: RED },{id: '10', type: RED },{id: '11', type: RED },
+      {id: '12', type: RED },{id: '13', type: RED },{id: '14', type: RED },{id: '15', type: RED },{id: '16', type: RED },{id: '17', type: RED },
+      {id: '18', type: RED },{id: '19', type: RED },{id: '20', type: RED },{id: '21', type: RED },{id: '22', type: RED },{id: '23', type: RED },
+      {id: '24', type: RED },{id: '25', type: RED },{id: '26', type: RED },{id: '27', type: RED },{id: '28', type: RED },{id: '29', type: RED },
+      {id: '30', type: RED },{id: '31', type: RED },{id: '32', type: RED },{id: '33', type: RED },{id: '34', type: RED },{id: '35', type: RED }
     ];
     this.setState({tileMap: tileMap });
   }

@@ -7,7 +7,7 @@ export default class TerritoryMap extends Component {
         const { territories } = this.props;
 
         return territories.map((tile, idx) => {
-            return <Territory key={tile.id} val={idx}/>
+            return <Territory key={tile.id} val={idx} type={tile.type}/>
         });
     }
 

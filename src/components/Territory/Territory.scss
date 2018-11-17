@@ -1,18 +1,40 @@
+@import '../../config/styles.scss';
+
 .o-territory {
+    $dim: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: tomato;
+    padding: .5em;
 
+    &__shape {
+        width: $dim; height: $dim;
+        overflow: hidden;
+    }
+    &__inner {
+        width: $dim; height: $dim;
+        transform: rotate(45deg);
+        background: salmon;
+    }
     &__text {
-        $size: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: $size;
-        height: $size;
+        position: absolute;
+    }
+    &__backdrop {
+        position: absolute;
+        width: $dim/1.5; height: $dim/1.5;
         border-radius: 50%;
-        background-color: salmon;
-        color: white;
+        background-color: white;
+    }
+}
+
+.o-territory--red {
+    &__inner {
+        background-color: $red;
+    }
+}
+
+.o-territory--blue {
+    &__inner {
+        background-color: $blue;
     }
 }
