@@ -1,0 +1,18 @@
+.o-territory {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: tomato;
+
+    &__text {
+        $size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $size;
+        height: $size;
+        border-radius: 50%;
+        background-color: salmon;
+        color: white;
+    }
+}

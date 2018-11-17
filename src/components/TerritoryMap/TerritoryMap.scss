@@ -1,0 +1,6 @@
+.o-territoryMap {
+    display: grid;
+    grid-template: repeat(6, 1fr) / repeat(6, 1fr);
+    width: 600px;
+	height: 600px;
+}
