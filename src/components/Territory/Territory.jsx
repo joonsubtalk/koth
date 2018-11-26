@@ -1,25 +1,43 @@
 import React, { Component } from 'react'
 
-export default class Territory extends Component {
+const TILE_TYPE = {
+  RED : 'red',
+  BLUE : 'blue',
+  NONE : 'none'
+}
 
+export default class Territory extends Component {
+  state = {
+    selected : false,
+    selectable : false
+  }
+
+  componentDidMount() {
+    if (this.props.type !== TILE_TYPE.NONE) {
+      this.setState({selectable : true});
+    }
+  }
   clickHandler = (e) => {
+    if (!this.state.selectable) return;
+
     console.log(e.currentTarget);
+    this.setState({selected: !this.state.selected});
   }
 
   render() {
-    const {val, type} = this.props;
+    const {val, type, count} = this.props;
+    const { selected } = this.state;
     const classNames = type
       ? `o-territory o-territory--${type}`
       : `o-territory`;
+    const states = selected
+      ? `selected`
+      : '';
     return (
-      <div className={classNames} onClick={this.clickHandler}>
-        <div className="o-territory__shape">
-          <div className="o-territory__inner"></div>
-        </div>
-        <div className="o-territory__text">
-          {val}
-        </div>
-        <div className="o-territory__backdrop">s</div>
+      <div className={`${classNames} ${states}`}>
+        <div className="o-territory__hex"></div>
+        <div className="o-territory__attack">{count}</div>
+        <div className="o-territory__hit-area" onClick={this.clickHandler}></div>
       </div>
     )
   }
